@@ -1,0 +1,17 @@
+**/.dockerignore*
+**/.env
+.git/
+**/.gitignore
+.vs
+**/.vscode
+.next/
+**/Dockerfile
+**/.dockerignore
+docker-compose.yml
+docker-compose.*.yml
+nginx/
+**/bin/
+**/obj/
+**/global.json
+**/*.user
+**/node_modules
