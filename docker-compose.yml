@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  client:
+    build: client
+    stdin_open: true
+    ports:
+      - 3000:3000
+    networks:
+      - xiunet
+  # api:
+  #   image: api
+  #   stdin_open: true
+  #   ports:
+  #     - 5000:5000
+  #   networks:
+  #     - xiunet
+  # database:
+  #   image: database
+  #   stdin_open: true
+  #   ports:
+  #     - 5432:5432
+  #   networks:
+  #     - xiunet
+networks:
+  xiunet:
+    driver: bridge
+# volumes:
+#   pg-data:
+#     external: true
