@@ -1,0 +1,25 @@
+name: Client
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - client/pages/**
+      - client/public/**
+    
+jobs:
+  build:
+    name: Deploy
+    runs-on: self-hosted
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+    
+      - name: Install node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Restart server
+        run: cd temp && yarn && yarn restart
