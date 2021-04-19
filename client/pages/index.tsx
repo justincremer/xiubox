@@ -1,3 +1,3 @@
-const Home = () => <h2>Hello world</h2>;
-
-export default Home;
+export default function Home() {
+	return <h2>Home page</h2>;
+}
