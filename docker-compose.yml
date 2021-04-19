@@ -23,7 +23,7 @@ services:
       context: ./client
       dockerfile: dockerfile
     ports:
-      - 8080:3000
+      - 80:3000
     # networks:
     #   - portfolio-net
     stdin_open: true
