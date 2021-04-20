@@ -1,0 +1,52 @@
+version: '3.7'
+
+services:
+    # reverse-proxy:
+    #   image: nginx:latest
+    #   container_name: nginx
+    #   # depends_on:
+    #   #   - portfolio-client
+    #   # - api
+    #   # - database
+    #   # volumes:
+    #   #   - ./nginx.conf:/etc/nginx/nginx.conf
+    #   ports:
+    #     - 80:80/tcp
+    #     - 443:443/tcp
+    #   # networks:
+    #   #   - xiunet
+    #   restart: always
+    xiubox-client:
+        image: xiubox-client
+        container_name: xiubox-client
+        build:
+            context: ./client
+            dockerfile: dockerfile
+        ports:
+            - 80:3000
+        # networks:
+        #   - xiunet
+        stdin_open: true
+        restart: on-failure
+    # api:
+    #   image: api
+    #   stdin_open: true
+    #   ports:
+    #     - 5000:5000
+    #   networks:
+    #     - xiunet
+    #   restart: on-failure
+    # database:
+    #   image: database
+    #   stdin_open: true
+    #   ports:
+    #     - 5432:5432
+    #   networks:
+    #     - xiunet
+    #   restart: on-failure
+# networks:
+#   portfolio-net:
+#     driver: bridge
+# volumes:
+#   pg-data:
+#     external: true
