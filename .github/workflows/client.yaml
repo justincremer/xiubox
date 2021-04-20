@@ -1,16 +1,17 @@
 name: Client
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - client/**
+    push:
+        branches:
+            - main
+        paths:
+            - client/**
 jobs:
-  build:
-    name: Deploy
-    runs-on: self-hosted
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Run docker-compose stack
-        run: docker-compose -f docker-compose.yml up -d
+    build:
+        name: Deploy
+        runs-on: self-hosted
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Run docker-compose stack
+              working-directory: .
+              run: docker-compose -f docker-compose.yml up -d
