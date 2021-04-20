@@ -14,18 +14,18 @@ services:
   #     - 80:80/tcp
   #     - 443:443/tcp
   #   # networks:
-  #   #   - portfolio-net
+  #   #   - xiunet
   #   restart: always
-  portfolio-client:
-    image: portfolio-client
-    container_name: portfolio-client
+  xiubox-client:
+    image: xiubox-client
+    container_name: xiubox-client
     build:
       context: ./client
       dockerfile: dockerfile
     ports:
       - 80:3000
     # networks:
-    #   - portfolio-net
+    #   - xiunet
     stdin_open: true
     restart: on-failure
   # api:
