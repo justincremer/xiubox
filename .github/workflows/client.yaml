@@ -4,11 +4,11 @@ on:
     branches:
       - main
     paths:
+      - client/components/**
+      - client/public/**
+      - client/styles/**
       - client/pages/**
       - client/src/**
-      - client/public/**
-      - client/components/**
-      - client/styles/**
       - client/svgs/**
       - client/dockerfile
       - client/nginx.conf    
