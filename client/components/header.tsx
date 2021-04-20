@@ -13,92 +13,62 @@ const NavLink = (props: { to: string; children: any }) => {
 	const { to, children } = props;
 
 	return (
-		<Link href={to} style={{ textDecoration: 'none', color: 'white' }}>
+		<Link href={to} className="nounderline">
 			{children}
 		</Link>
 	);
 };
 
 const RedirectButtons = () => {
-	const p = '1rem';
-
 	return (
-		<div>
+		<div className="justify-items-center text-white">
 			<NavLink
 				to="/books"
-				children={
-					<Button
-						color="inherit"
-						style={{ paddingLeft: p, paddingRight: p }}
-					>
-						Books
-					</Button>
-				}
+				children={<Button className="px-4">Books</Button>}
 			/>
 			<NavLink
 				to="/users"
-				children={
-					<Button
-						color="inherit"
-						style={{ paddingLeft: p, paddingRight: p }}
-					>
-						Users
-					</Button>
-				}
+				children={<Button className="px-4">Users</Button>}
 			/>
 			<NavLink
 				to="/todos"
-				children={
-					<Button
-						color="inherit"
-						style={{ paddingLeft: p, paddingRight: p }}
-					>
-						Todos
-					</Button>
-				}
+				children={<Button className="px-4">Todos</Button>}
 			/>
 		</div>
 	);
 };
 
-//TODO: move into api client
 const ensureAuthenticated = (): boolean => false;
 
 const AuthenticationButton = () => {
 	const authenticated: boolean = ensureAuthenticated();
 
-	if (authenticated) {
-		return (
-			<NavLink
-				to="/logout"
-				children={<Button color="inherit">Logout</Button>}
-			/>
-		);
-	}
-
 	return (
-		<NavLink
-			to="/login"
-			children={<Button color="inherit">Login</Button>}
-		/>
+		<div className="text-white">
+			{ensureAuthenticated() ? (
+				<NavLink to="/logout" children={<Button>Logout</Button>} />
+			) : (
+				<NavLink to="/login" children={<Button>Login</Button>} />
+			)}
+		</div>
 	);
 };
 
 const Header = () => (
-	<AppBar position="static" color="secondary">
+	<AppBar className="flex bg-pink-800 ">
 		<Toolbar>
-			<Grid container justify="flex-start" alignItems="center">
+			<Grid className="container flex justify-start align-middle">
 				<IconButton edge="start" color="inherit" aria-label="menu">
 					<MenuIcon />
 				</IconButton>
-				<Box style={{ marginLeft: '1rem' }}>
+				<Box className="ml-4">
 					<NavLink to="/" children={<Logo />} />
 				</Box>
 			</Grid>
-			<Grid container justify="center">
+			<Grid className="container justify-end">
 				<RedirectButtons />
 			</Grid>
-			<Grid container justify="flex-end">
+			<Grid className="container flex justify-end">
 				<AuthenticationButton />
 			</Grid>
 		</Toolbar>
