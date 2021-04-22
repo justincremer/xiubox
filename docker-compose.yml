@@ -20,7 +20,7 @@ services:
         image: xiubox-client
         container_name: xiubox-client
         build:
-            context: ./client
+            context: client.bak
             dockerfile: dockerfile
         ports:
             - 80:3000

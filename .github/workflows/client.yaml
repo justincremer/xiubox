@@ -12,6 +12,9 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
-            - name: Run docker-compose stack
-              working-directory: .
-              run: docker-compose -f docker-compose.yml up -d
+            - name: Build prod
+              uses: docker-compose build
+            - name: Run prod
+              run: docker-compose up -d
+            - name: Prune old image caches
+              run: docker image prune -f
